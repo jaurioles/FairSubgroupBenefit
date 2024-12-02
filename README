@@ -1,0 +1,28 @@
+This repository is attached to the manuscript "Understanding algorithmic fairness 
+for clinical prediction in terms of subgroup net benefit and health equity".
+
+The goal of this repository is to show how the results reported in the manuscript
+were obtained. Because UK Biobank data cannot be shared freely, the code is not
+fully reproducible, but a synthetic data example is included. Here is an overview
+of the files:
+
+1_data_preprocessing.R - This R file prepares the 'raw' UK Biobank data. As
+            UK Biobank data cannot be provided, we have included an alternative
+            file "1_1_synthetic.R" that creates a similar-looking dataset to run
+            the code on.
+          
+1_1_synthetic.R - Creates a similar-looking synthetic dataset to run the code on.
+            The data is not meant to be realistic, just structurally similar, so that
+            the provided code can be run somewhere. The outcome in both the diabetes 
+            and lung cancer cases follows a very simple, slightly non-linear logistic regression.
+
+2_model_training.R - Trains the XGboost models using the training part of the
+            training:validation split.
+
+3_boot_validation.R - Generates validation results for the LASSO logistic regression models.
+
+4_1_split_validation.R - Uses XGBoost models trained in "2_model_training.R" to
+            plot all the results related to the xgboost model.
+
+4_2_boot_validation.R - Uses validation results from "3_boot_validation.R" to plot all the results
+            related to the LASSO models.
